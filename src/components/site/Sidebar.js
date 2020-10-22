@@ -7,6 +7,9 @@ import {
 }   from 'react-router-dom'
 import Home from './Home'
 import Resources from './Resources'
+import FunctionalComponentDemo from '../concepts/FunctionalComponentDemo'
+import JSXRules from '../concepts/JSXRules';
+import State from '../concepts/State';
 
 const Sidebar = () => {
     return (
@@ -15,16 +18,21 @@ const Sidebar = () => {
                 <ul className="sidebar-list list-unstyled">
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/functionalcomponent">Functional Component</Link></li>
+                    <li><Link to="/jsxrules">JSX Rules</Link></li>
+                    <li><Link to ="/state">useState</Link></li>
                     <li><Link to="/resources">Resources</Link></li>
                 </ul>
             </div>
             <div className="sidebar-route">
-    //We use Switch to wrap our Routes in because the Switch acts like a vanilla JS switch and iterates over the routers and only render the first one that match the current path name.
+    
                 <Switch>
     //This how we can set up an official Route. Exact limits the path that can match this route to only the words shown. **See more notes at bottom of code about Route..
                     <Route exact path="/home"><Home /></Route>
                     <Route exact path="/resources"><Resources /></Route>
                     <Route exact path="/"><Home /></Route>
+                    <Route exact path="/jsxrules"><JSXRules /></Route>
+                    <Route exact path="/functionalcomponent"><FunctionalComponentDemo /></Route>
+                    <Route exact path="/state"><State /></Route>
                 </Switch>
             </div>
         </div>
@@ -45,3 +53,5 @@ export default Sidebar;
 //Next, is path="/home". This is just saying that the path where this component should be shown is /home!
 
 // One more important thing, notice how the component is declared between the open and closing Route tags. Ensure that there are no excess spaces in between the Routes as well, as this could cause it to break. Each Route has to have only one child component. So if you wanted multiple component in one route, you'd have to wrap them all in a div!
+
+//We use Switch to wrap our Routes in because the Switch acts like a vanilla JS switch and iterates over the routers and only render the first one that match the current path name.
